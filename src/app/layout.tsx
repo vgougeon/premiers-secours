@@ -1,9 +1,10 @@
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Switch } from "@/components/ui/switch";
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { Raleway } from "next/font/google";
 import { twMerge } from 'tailwind-merge';
 import "./globals.css";
+const LayoutBreadcrumb = dynamic(() => import("@/components/blocks/breadcrumb"));
 
 const raleway = Raleway({ subsets: ["latin-ext"], variable: '--raleway', weight: ["200", "300", "400", "500", "600", "700", "800"] });
 
@@ -24,17 +25,7 @@ export default function RootLayout({
             <Switch />
             <span className="font-semibold">Situation de détresse</span>
           </div>
-          <Breadcrumb className="py-2 mb-3">
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink href="/">Étouffement</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink href="/components">Obstruction complète</BreadcrumbLink>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
+          <LayoutBreadcrumb />
           {children}
         </div>
       </body>
