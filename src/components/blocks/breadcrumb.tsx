@@ -2,6 +2,7 @@
 
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { usePathname } from "next/navigation";
+import { Fragment } from "react";
 const routes = {
     "etouffement": { name: "Étouffement", url: "/etouffement" },
     "obstruction-complete": { name: "Obstruction complète", url: "/etouffement/obstruction-complete" },
@@ -20,19 +21,19 @@ export default function LayoutBreadcrumb() {
     return (
         <Breadcrumb className="py-2 mb-3">
             <BreadcrumbList>
-                {items.map((item, index) => <>
+                {items.map((item, index) => <Fragment key={index}>
                     {index === items.length - 1 &&
-                        <BreadcrumbPage key={index}>
+                        <BreadcrumbPage>
                             {routes[item]?.name || item}
                         </BreadcrumbPage>
                     }
                     {index < items.length - 1 &&
-                        <BreadcrumbItem key={index}>
+                        <BreadcrumbItem>
                             <BreadcrumbLink href={routes[item].url}>{routes[item]?.name || item}</BreadcrumbLink>
                         </BreadcrumbItem>
                     }
                     <BreadcrumbSeparator />
-                </>)}
+                </Fragment>)}
 
 
             </BreadcrumbList>

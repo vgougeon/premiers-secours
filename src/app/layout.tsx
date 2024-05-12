@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="fr">
       <body className={twMerge(raleway.className, "bg-white flex pt-5 justify-center min-h-screen pb-10")}>
         <div className="absolute top-0 left-0 right-0 h-36 bg-gradient-to-b from-blue-50 to-white select-none"></div>
-        <div className="max-w-xl w-full px-5 relative">
+        <div className="max-w-5xl w-full px-5 relative">
           <div className="flex gap-2 items-center py-4">
             <Switch />
             <span className="font-semibold">Situation de détresse</span>
